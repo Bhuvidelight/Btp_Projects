@@ -1,0 +1,8 @@
+code,description
+ORDER_DELAY,Order delivery delayed beyond expected date
+PAYMENT_FAILURE,Payment was attempted but did not complete successfully
+WRONG_ITEM,Incorrect item delivered compared to the order
+DAMAGED_ITEM,Item received in damaged or broken condition
+MISSING_ITEM,One or more items are missing from the delivery
+CANCEL_REQUEST,Customer requested order cancellation
+REFUND_REQUEST,Customer requested a refund for the order

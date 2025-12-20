@@ -1,0 +1,7 @@
+POST  http://localhost:38243/odata/v4/myservice/Hey
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name":"Bhuvi"
+}

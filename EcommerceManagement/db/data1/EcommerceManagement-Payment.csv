@@ -1,0 +1,4 @@
+payId,oId,amount,pStatus
+701, 201, 55000, Paid
+702, 202, 2500, Pending
+703, 203, 499, Failed

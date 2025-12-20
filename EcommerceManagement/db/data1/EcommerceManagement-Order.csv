@@ -1,0 +1,4 @@
+oId,cId,pId,delId,oStatus,Total
+201, 101, 301, 501, Delivered,900
+202, 102, 302, 502, Pending,566
+203, 103, 303, 503, In Transit,455

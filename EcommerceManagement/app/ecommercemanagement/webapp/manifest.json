@@ -1,0 +1,220 @@
+{
+  "_version": "1.76.0",
+  "sap.app": {
+    "id": "ecommercemanagement",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.19.5",
+      "toolsId": "5d43bc2f-6431-4887-8e3d-af064d26ae69"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/myservice/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.142.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ecommercemanagement.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "CustomersList",
+          "target": "CustomersList"
+        },
+        {
+          "pattern": "Customers({key}):?query:",
+          "name": "CustomersObjectPage",
+          "target": "CustomersObjectPage"
+        },
+        {
+          "pattern": "Customers({key})/CustomerstoOrders({key2}):?query:",
+          "name": "OrderObjectPage",
+          "target": "OrderObjectPage"
+        }
+      ],
+      "targets": {
+        "CustomersList": {
+          "type": "Component",
+          "id": "CustomersList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Customers",
+              "variantManagement": "Page",
+              "navigation": {
+                "Customers": {
+                  "detail": {
+                    "route": "CustomersObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "CustomersObjectPage": {
+          "type": "Component",
+          "id": "CustomersObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Customers",
+              "navigation": {
+                "CustomerstoOrders": {
+                  "detail": {
+                    "route": "OrderObjectPage"
+                  }
+                }
+              },
+              "content": {
+                "header": {
+                  "actions": {
+                    "8": {
+                      "press": "ecommercemanagement.ext.controller.Threebotton.Threebuttonc",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "C",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DeleteAction"
+                      }
+                    },
+                    "789": {
+                      "press": "ecommercemanagement.ext.controller.Total.onTotalSum",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Total",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "1234"
+                      }
+                    },
+                    "876": {
+                      "press": "ecommercemanagement.ext.controller.Threebotton.Threebuttonb",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "B",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DeleteAction"
+                      }
+                    },
+                    "1234": {
+                      "press": "ecommercemanagement.ext.controller.TextChange.TextChange",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "Change",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DeleteAction"
+                      }
+                    },
+                    "4345": {
+                      "press": "ecommercemanagement.ext.controller.Threebotton.ThreebuttonA",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "A",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DeleteAction"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "OrderObjectPage": {
+          "type": "Component",
+          "id": "OrderObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Customers/CustomerstoOrders"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

@@ -1,0 +1,4 @@
+pId,storeId,pName,pAvailability,pType
+301, 1, Laptop, Yes, Electronics
+302, 2, Headphones, Yes, Accessories
+303, 3, Mobile Case, No, Accessories

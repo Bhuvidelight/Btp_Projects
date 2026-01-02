@@ -1,9 +1,6 @@
 namespace OrderIssueApplication;
 
-using {
-    cuid,
-    managed
-} from '@sap/cds/common';
+using {cuid,managed} from '@sap/cds/common';
 
 entity Customers {
     key CustomerID        : String @UI.Placeholder: 'CustomerId'  @readonly;
@@ -34,9 +31,11 @@ entity Orders {
 entity Issues {
     key IssueID : String @UI.Placeholder: 'IssueId' @readonly;
     key    OrderID : String @UI.Placeholder: 'orderId' @readonly;
-
+   
     issueType  : Association to IssueType;
     requestType: Association to requestType;
+    status : String default 'PENDING'; 
+    InstanceId:String;
 
     IssuestoOrders      : Association to Orders
                               on IssuestoOrders.OrderID = OrderID;
@@ -51,13 +50,16 @@ entity Issues {
 
 entity IssueComments : cuid, managed {
 
-    key IssueID          : String @UI.Placeholder: 'IssueId';
-    comment          : String;
+    key IssueID : String;
+    OrderID : String;
+    comment : String;
+    role    : String default 'USER';
+    status : String default 'PENDING';
 
     CommentstoIssues : Association to one Issues
-                           on CommentstoIssues.IssueID = IssueID;
+        on CommentstoIssues.IssueID = IssueID
+       and CommentstoIssues.OrderID = OrderID;
 }
-
 
 entity IssueAttachments : cuid, managed {
  

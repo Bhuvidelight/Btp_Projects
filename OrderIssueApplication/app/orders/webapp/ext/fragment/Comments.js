@@ -16,7 +16,7 @@ sap.ui.define([
             debugger
     const oSource = oEvent.getSource();
     const oContext = oSource.getBindingContext();
-
+  
     if (!oContext) {
         MessageToast.show("No Issue context found");
         return;
@@ -143,6 +143,14 @@ this._commentsDialog = new sap.m.Dialog({
     const oTextVBox = new sap.m.VBox();
 
     // Created By
+
+      oTextVBox.addItem(
+    new sap.m.Text({
+        text: oComment.createdBy +"  "+oComment.role || "",  
+        wrapping: true
+    })
+);
+
     oTextVBox.addItem(
     new sap.m.Text({
         text: oComment.comment || "",  

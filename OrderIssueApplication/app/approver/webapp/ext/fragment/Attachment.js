@@ -1,10 +1,11 @@
 sap.ui.define([
     "sap/m/MessageToast"
-], function (MessageToast) {
+], function(MessageToast) {
     'use strict';
- 
+
     return {
-        getIconSrc: async function (oEvent) {
+       
+          getIconSrc: async function (oEvent) {
             debugger
             return sap.m.plugins.UploadSetwithTable.getIconForFileType(oEvent);
         },

@@ -50,6 +50,14 @@ modules:
       - approver.zip
       name: approver
       target-path: resources/
+    - artifacts:
+      - approvallevels.zip
+      name: approvallevels
+      target-path: resources/
+    - artifacts:
+      - approverlevels.zip
+      name: approverlevels
+      target-path: resources/
 - name: admin
   type: html5
   path: app/admin
@@ -83,6 +91,26 @@ modules:
 - name: approver
   type: html5
   path: app/approver
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: approvallevels
+  type: html5
+  path: app/approvallevels
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: approverlevels
+  type: html5
+  path: app/approverlevels
   build-parameters:
     build-result: dist
     builder: custom

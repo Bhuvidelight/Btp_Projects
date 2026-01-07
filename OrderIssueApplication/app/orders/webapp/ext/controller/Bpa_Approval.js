@@ -1,11 +1,11 @@
 sap.ui.define([
     "sap/m/MessageToast",
     "sap/m/MessageBox"
-], function(MessageToast, MessageBox) {  
+], function (MessageToast, MessageBox) {
     'use strict';
 
     return {
-       onClickApproval: function (oContext, aSelectedContexts) {
+        onClickApproval: function (oContext, aSelectedContexts) {
             MessageBox.confirm("Do you want to send for the Approver?", {
                 emphasizedAction: MessageBox.Action.YES,
                 actions: [MessageBox.Action.YES, MessageBox.Action.NO],
@@ -17,12 +17,12 @@ sap.ui.define([
                     }
 
                     try {
-                        
+
                         const oModel = sap.ui.core.Element
                             .getElementById("orders::OrdersObjectPage--fe::StandardAction::Edit")
                             .getModel();
 
-                        
+
                         const sOrderId = sap.ui.core.Element
                             .getElementById(
                                 "orders::OrdersObjectPage--fe::FormContainer::GeneratedFacet1::FormElement::DataField::OrderID::Field-display"
@@ -37,11 +37,21 @@ sap.ui.define([
                         const IssueID = sap.ui.core.Element.getElementById("orders::OrdersObjectPage--fe::table::OrderstoIssues::LineItem::Issues-innerTable").getItems()[0].getBindingContext().getObject().IssueID
                         const oFunction = oModel.bindContext("/sendForApproval(...)");
                         oFunction.setParameter("OrderId", sOrderId);
-                        oFunction.setParameter("IssueID",IssueID)
+                        oFunction.setParameter("IssueID", IssueID)
 
                         await oFunction.execute();
 
+                        // const oContext = sap.ui.core.Element.getElementById("orders::OrdersObjectPage--fe::CustomSubSection::ApprovalHistory--_IDGenTable").getBindingContext();
+
+                        // oContext.requestSideEffects([{
+                        //     path: 'orderToapprovalHistory'
+                        // }]);
+
                         MessageBox.show("Sent for approval ");
+
+                    //      oModel = this.getView().getModel();
+                    //    oModel.refresh(true);
+
 
                     } catch (err) {
                         console.error(err);

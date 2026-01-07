@@ -22,7 +22,8 @@
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
     "watch-orders": "cds watch --open orders/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-project1": "cds watch --open project1/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch-approver": "cds watch --open approver/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-approver": "cds watch --open approver/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-approverlevels": "cds watch --open approverlevels/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "private": true,
   "cds": {
@@ -40,6 +41,7 @@
     "app/project1",
     "app/admin",
     "app/orders",
-    "app/approver"
+    "app/approver",
+    "app/approverlevels"
   ]
 }

@@ -5,6 +5,8 @@ service MyService2 {
   entity Issues          as projection on OrderIssueApplication.Issues;
   entity IssueComments   as projection on OrderIssueApplication.IssueComments;
   entity IssueAttachments as projection on OrderIssueApplication.IssueAttachments;
+  entity ApprovalHistory as projection on OrderIssueApplication.ApprovalHistory;
+
 
   function ApproverComment(
     IssueID : String,

@@ -1,7 +1,7 @@
 {
   "_version": "1.76.0",
   "sap.app": {
-    "id": "approver",
+    "id": "approverlevels",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,11 +13,11 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.20.0",
-      "toolsId": "ebaca299-9fc9-4e5d-8e60-5ef8dc57b516"
+      "toolsId": "16063f8e-cd42-4c77-870a-64dc9106e7e1"
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/my-service2/",
+        "uri": "/odata/v4/my-service4/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -60,7 +60,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "approver.i18n.i18n"
+          "bundleName": "approverlevels.i18n.i18n"
         }
       },
       "": {
@@ -85,28 +85,28 @@
       "routes": [
         {
           "pattern": ":?query:",
-          "name": "IssuesList",
-          "target": "IssuesList"
+          "name": "ApproverLevelsList",
+          "target": "ApproverLevelsList"
         },
         {
-          "pattern": "Issues({key}):?query:",
-          "name": "IssuesObjectPage",
-          "target": "IssuesObjectPage"
+          "pattern": "ApproverLevels({key}):?query:",
+          "name": "ApproverLevelsObjectPage",
+          "target": "ApproverLevelsObjectPage"
         }
       ],
       "targets": {
-        "IssuesList": {
+        "ApproverLevelsList": {
           "type": "Component",
-          "id": "IssuesList",
+          "id": "ApproverLevelsList",
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
-              "contextPath": "/Issues",
+              "contextPath": "/ApproverLevels",
               "variantManagement": "Page",
               "navigation": {
-                "Issues": {
+                "ApproverLevels": {
                   "detail": {
-                    "route": "IssuesObjectPage"
+                    "route": "ApproverLevelsObjectPage"
                   }
                 }
               },
@@ -114,73 +114,23 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
-                  },
-                  "columns": {
-                    "DataField::OrderID": {
-                      "width": "10rem"
-                    },
-                    "DataField::IssueID": {
-                      "width": "10rem"
-                    },
-                    "DataField::requestType_code": {
-                      "width": "10rem"
-                    },
-                    "DataField::issueType_code": {
-                      "width": "10rem"
-                    }
                   }
                 }
               }
             }
           }
         },
-        "IssuesObjectPage": {
+        "ApproverLevelsObjectPage": {
           "type": "Component",
-          "id": "IssuesObjectPage",
+          "id": "ApproverLevelsObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Issues",
-              "navigation": {},
-              "controlConfiguration": {
-                "IssuestoComments/@com.sap.vocabularies.UI.v1.LineItem#Approvercomments": {
-                  "tableSettings": {
-                    "type": "ResponsiveTable",
-                    "selectionMode": "Single"
-                  }
-                }
-              },
-              "content": {
-                "body": {
-                  "sections": {
-                    "ApproverComments": {
-                      "template": "approver.ext.fragment.ApproverComments",
-                      "position": {
-                        "placement": "After",
-                        "anchor": "GeneratedFacet1"
-                      },
-                      "title": "{i18n>comments}"
-                    },
-                    "Attachment": {
-                      "template": "approver.ext.fragment.Attachment",
-                      "position": {
-                        "placement": "After",
-                        "anchor": "ApproverComments"
-                      },
-                      "title": "Attachments"
-                    }
-                  }
-                }
-              }
+              "contextPath": "/ApproverLevels"
             }
           }
         }
-      }
-    },
-    "extends": {
-      "extensions": {
-        "sap.ui.controllerExtensions": {}
       }
     }
   },

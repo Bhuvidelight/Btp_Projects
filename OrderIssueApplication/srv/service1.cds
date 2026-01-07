@@ -11,10 +11,15 @@ service MyService1 {
   entity IssueComments    as projection on OrderIssueApplication.IssueComments;
   entity IssueType        as projection on OrderIssueApplication.IssueType;
   entity requestType      as projection on OrderIssueApplication.requestType;
+  entity ApproverLevels as projection on OrderIssueApplication.ApproverLevels;
+  entity ApprovalHistory as projection on OrderIssueApplication.ApprovalHistory;  
+
+
 
   function addComment(commentID: String, IssueID: String, text: String) returns String;
 
-  function commentsDraft(IssueID: String, description: String)          returns String;
+  function commentsDraft(IssueID: String, description: String) returns String;
+
 
   function sendForApproval(
     OrderID    : String,

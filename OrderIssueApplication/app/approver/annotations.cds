@@ -38,7 +38,7 @@ annotate service.Issues with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'OrderID',
+            Label : '{i18n>OrderId}',
             Value : OrderID,
         },
         {
@@ -49,12 +49,12 @@ annotate service.Issues with @(
         {
             $Type : 'UI.DataField',
             Value : issueType_code,
-            Label : 'issueType_code',
+            Label : '{i18n>IssueType}',
         },
         {
             $Type : 'UI.DataField',
             Value : requestType_code,
-            Label : 'requestType_code',
+            Label : '{i18n>RequestType}',
         },
     ],
    

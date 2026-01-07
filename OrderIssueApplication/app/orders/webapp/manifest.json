@@ -119,6 +119,11 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
+                  },
+                  "columns": {
+                    "DataField::CustomerID": {
+                      "width": "10rem"
+                    }
                   }
                 }
               }
@@ -163,6 +168,18 @@
                       "visible": "{= !${ui>/isEditable}}",
                       "enabled": true,
                       "text": "Send for approval"
+                    }
+                  }
+                },
+                "body": {
+                  "sections": {
+                    "ApprovalHistory": {
+                      "template": "orders.ext.fragment.ApprovalHistory",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "Issues"
+                      },
+                      "title": "Approval History"
                     }
                   }
                 }
